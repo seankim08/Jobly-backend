@@ -15,12 +15,19 @@ const jobsRoutes = require("./routes/jobs");
 
 const morgan = require("morgan");
 
+const cors = require('cors');
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
+
+app.use(cors({
+  origin: 'https://jobly-frontend-fvin.onrender.com',
+  credentials: true
+}));
 
 app.use("/auth", authRoutes);
 app.use("/companies", companiesRoutes);
