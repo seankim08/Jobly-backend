@@ -13,21 +13,17 @@ const companiesRoutes = require("./routes/companies");
 const usersRoutes = require("./routes/users");
 const jobsRoutes = require("./routes/jobs");
 
-const morgan = require("morgan");
-
-const cors = require('cors');
+const morgan = require("morgan")
 
 const app = express();
-
-app.use(cors());
-app.use(express.json());
-app.use(morgan("tiny"));
-app.use(authenticateJWT);
 
 app.use(cors({
   origin: 'https://jobly-frontend-fvin.onrender.com',
   credentials: true
 }));
+app.use(express.json());
+app.use(morgan("tiny"));
+app.use(authenticateJWT);
 
 app.use("/auth", authRoutes);
 app.use("/companies", companiesRoutes);
