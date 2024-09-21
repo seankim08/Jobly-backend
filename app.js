@@ -21,6 +21,11 @@ app.use(cors({
   origin: 'https://jobly-frontend-fvin.onrender.com',
   credentials: true
 }));
+
+app.get("/", (req, res) => {
+  res.send("Jobly backend is running!");
+});
+
 app.use(express.json());
 app.use(morgan("tiny"));
 app.use(authenticateJWT);
