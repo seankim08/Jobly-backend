@@ -5,9 +5,6 @@
 const jsonschema = require("jsonschema");
 
 const express = require("express");
-
-const supabase = require("./supabaseClient");
-
 const { ensureCorrectUserOrAdmin, ensureAdmin } = require("../middleware/auth");
 const { BadRequestError } = require("../expressError");
 const User = require("../models/user");
@@ -17,17 +14,6 @@ const userUpdateSchema = require("../schemas/userUpdate.json");
 
 const router = express.Router();
 
-router.get("/users", async (req, res) => {
-  const { data, error } = await supabase
-    .from("users")
-    .select("*");
-
-  if (error) {
-    return res.status(500).json({ error: error.message });
-  }
-
-  res.json(data);
-});
 
 /** POST / { user }  => { user, token }
  *
