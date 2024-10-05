@@ -32,7 +32,7 @@ const corsOptions = {
     
     const allowedOrigins = [
       'http://localhost:3001',  // local frontend
-      'https://your-frontend-domain.com',  // deployed frontend
+      'https://jobly-frontend-fvin.onrender.com',  // deployed frontend
     ];
     
     if (allowedOrigins.indexOf(origin) === -1) {
