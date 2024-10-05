@@ -17,13 +17,12 @@ const morgan = require("morgan")
 
 const app = express();
 
-/**
 app.use(cors({
   origin: 'https://jobly-frontend-fvin.onrender.com',
   credentials: true
 }));
-*/
 
+/**
 // CORS configuration
 const corsOptions = {
   origin: function (origin, callback) {
@@ -45,6 +44,7 @@ const corsOptions = {
   allowedHeaders: ['Content-Type', 'Authorization'],
   credentials: true
 };
+*/
 
 app.use(cors(corsOptions));
 
