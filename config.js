@@ -17,6 +17,11 @@ function getDatabaseUri() {
     : process.env.DATABASE_URL || "postgresql://postgres.udvbvkvwufomrcbfhonp:hnroaK2CsqrZSJre@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require";
 }
 
+// SSL configuration for production database
+const DB_SSL_CONFIG = process.env.NODE_ENV === "production"
+  ? { rejectUnauthorized: false }
+  : undefined;
+
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
 //
 // WJB: Evaluate in 2021 if this should be increased to 13 for non-test use
@@ -34,4 +39,5 @@ module.exports = {
   PORT,
   BCRYPT_WORK_FACTOR,
   getDatabaseUri,
+  DB_SSL_CONFIG,
 };
