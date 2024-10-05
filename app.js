@@ -31,6 +31,10 @@ app.use("/users", usersRoutes);
 app.use("/jobs", jobsRoutes);
 
 
+app.get("/", function (req, res) {
+  return res.json({message: "Jobly Backend API"});
+});
+
 /** Handle 404 errors -- this matches everything */
 app.use(function (req, res, next) {
   return next(new NotFoundError());
