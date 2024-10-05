@@ -11,16 +11,10 @@ const PORT = +process.env.PORT || 3001;
 
 // Use dev database, testing database, or via env var, production database
 function getDatabaseUri() {
-  console.log(process.env.NODE_ENV)
   return (process.env.NODE_ENV === "test")
-    ? "postgresql://username:password@localhost:5432/jobly_test"
-    : process.env.DATABASE_URL || "postgresql://postgres.udvbvkvwufomrcbfhonp:hnroaK2CsqrZSJre@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require";
+      ? "postgresql://username:password@localhost:5432/jobly_test"
+      : process.env.DATABASE_URL || "postgresql://postgres.udvbvkvwufomrcbfhonp:hnroaK2CsqrZSJre@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require";
 }
-
-// SSL configuration for production database
-const DB_SSL_CONFIG = {
-  rejectUnauthorized: false,
-};
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
 //
@@ -39,5 +33,4 @@ module.exports = {
   PORT,
   BCRYPT_WORK_FACTOR,
   getDatabaseUri,
-  DB_SSL_CONFIG,
 };

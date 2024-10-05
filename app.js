@@ -17,6 +17,7 @@ const morgan = require("morgan")
 
 const app = express();
 
+
 app.use(cors({
   origin: 'https://jobly-frontend-fvin.onrender.com',
   credentials: true
