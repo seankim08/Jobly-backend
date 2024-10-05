@@ -14,7 +14,7 @@ function getDatabaseUri() {
   console.log(process.env.NODE_ENV)
   return (process.env.NODE_ENV === "test")
     ? "postgresql://username:password@localhost:5432/jobly_test"
-    : process.env.DATABASE_URL || "postgresql://postgres.udvbvkvwufomrcbfhonp:postgres@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require";
+    : process.env.DATABASE_URL || "postgresql://postgres.udvbvkvwufomrcbfhonp:hnroaK2CsqrZSJre@aws-0-us-east-1.pooler.supabase.com:6543/postgres?sslmode=require";
 }
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
