@@ -20,7 +20,6 @@ function getDatabaseUri() {
 // SSL configuration for production database
 const DB_SSL_CONFIG = {
   rejectUnauthorized: false,
-  ca: process.env.SSL_CERT,
 };
 
 // Speed up bcrypt during tests, since the algorithm safety isn't being tested
